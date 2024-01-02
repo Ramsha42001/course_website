@@ -60,6 +60,7 @@ function AddVideos() {
                 await axios.delete(`https://course-website-backend1.onrender.com/api/v1/videos/${id}`,{
                   headers:{ authorization:`Bearer ${localStorage.getItem('token')}`}
                 });
+                fetchVideos();
                 setVideos(videos.filter((x)=> x.id!==id))
             }catch(e){
                 alert("Failed to Delete the Video",e);

@@ -61,6 +61,7 @@ function AddNotes() {
                 await axios.delete(`https://course-website-backend1.onrender.com/api/v1/notes/${id}`,{
                   headers:{ authorization:`Bearer ${localStorage.getItem('token')}`}
                 });
+                fetchNotes();
                 setNotes(notes.filter((x)=> x.id!==id))
             }catch(e){
                 alert("Failed to Delete the Notes",e);

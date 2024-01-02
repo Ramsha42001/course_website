@@ -66,6 +66,7 @@ const handleInputChange=(e)=>{
             await axios.delete(`https://course-website-backend1.onrender.com/api/v1/assignments/${id}`,{
               headers:{ authorization:`Bearer ${localStorage.getItem('token')}`}
             });
+            fetchAssignment();
             setAssign(assign.filter((x)=> x.id!==id))
         }catch(e){
             alert("Failed to Delete the Assignment",e);
