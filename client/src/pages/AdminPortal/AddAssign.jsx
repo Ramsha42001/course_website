@@ -48,6 +48,8 @@ const handleInputChange=(e)=>{
 
     console.log(res.data);
     setAssign([...assign,res.data.assignments])
+    window.location.reload();
+
     setFormData({course:'',assignDescription:'',assignment:''});
   }
   catch(e)

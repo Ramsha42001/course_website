@@ -44,7 +44,9 @@ function AddNotes() {
             });
             // const data = await res.json();
             console.log(res.data)
+           
             setNotes([...notes,res.data.notes])
+            window.location.reload();
             setFormData({course:'',notesDescription:'' , notesLink:''});
         }catch(e){
             console.log(e);

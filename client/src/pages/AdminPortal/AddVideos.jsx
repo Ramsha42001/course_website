@@ -44,6 +44,8 @@ function AddVideos() {
             // const data = await res.json();
             console.log(res.data)
             setVideos([...videos,res.data.vid])
+            window.location.reload();
+
             setFormData({course:'',title:'' , videoLink:''});
         }catch(e){
             console.log(e);
