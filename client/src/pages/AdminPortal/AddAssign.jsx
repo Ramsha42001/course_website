@@ -22,7 +22,6 @@ function AddAssignment()
 const fetchAssignment=async()=>{
   try{
    const response = await axios.get(`https://course-website-backend1.onrender.com/api/v1/assignments`)
-   console.log(response.data);
    setAssign(response.data.assignments)
   }
   catch(e){
@@ -145,7 +144,9 @@ const handleInputChange=(e)=>{
                   
                   <td>{assignment.assignDescription}</td>
                   <td>
-                    <button onClick={() => handleDeleteAssignment(assignment._id)}>Delete</button>
+                    <button onClick={(e) => {
+                      e.preventDefault();
+                      handleDeleteAssignment(assignment._id)}}>Delete</button>
                   </td>
                 </tr>
               ))

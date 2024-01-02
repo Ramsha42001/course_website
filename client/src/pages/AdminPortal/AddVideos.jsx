@@ -33,11 +33,10 @@ function AddVideos() {
         });
       };
 
-      const handleAddVideo = async(e) =>{
-        e.preventDefault()
+      const handleAddVideo = async() =>{
         try{
-            const token = localStorage.getItem('token');
-            // console.log('Token:', token);
+          const token = localStorage.getItem('token');
+          console.log('Token:', token);
             const res =await axios.post("https://course-website-backend1.onrender.com/api/v1/videos", formData,{
               headers:{ authorization:`Bearer ${token}`}
             });
@@ -116,7 +115,9 @@ function AddVideos() {
           />
                 
             </div>
-            <button className={Admincss.button} onClick={handleAddVideo}>Add Video</button>
+            <button className={Admincss.button} onClick={(e)=>{
+              e.preventDefault();
+              handleAddVideo()}}>Add Video</button>
         </div>
       
 
@@ -137,7 +138,9 @@ function AddVideos() {
                    <td>{getCourseName(video.course)}</td>
                   <td>{video.title}</td>
                   <td>
-                    <button onClick={() => handleDeleteVideo(video._id)}>
+                    <button onClick={(e) =>{ 
+                      e.preventDefault();
+                      handleDeleteVideo(video._id)}}>
                       Delete
                     </button>
                   </td>

@@ -137,7 +137,9 @@ function AddNotes() {
                   <td>{getCourseName(note.course)}</td>
                   <td>{note.notesDescription}</td>
                   <td>
-                    <button onClick={() => handleDeleteNotes(note._id)}>Delete</button>
+                    <button onClick={(e) => {
+                      e.preventDefault();
+                      handleDeleteNotes(note._id)}}>Delete</button>
                   </td>
                 </tr>
               ))
